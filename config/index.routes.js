@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
 const authController = require('../controllers/auth.controllers')
-const authMiddlewares = require('../middlewares/authMiddlewares');
+const authMiddlewares = require('../middlewares/authMiddlewares')
+const fileUploader = require('./cloudinary.config')
 
 const SCOPES = [
     "profile",
@@ -13,7 +14,7 @@ router.get('/',(req, res, next) => {res.render('home')});
 
 //AUTH
 router.get('/register', authMiddlewares.isNotAuthenticated, authController.register);
-router.post('/register', authMiddlewares.isNotAuthenticated, authController.doRegister);
+router.post('/register', authMiddlewares.isNotAuthenticated, fileUploader.single('image'), authController.doRegister);
 router.get('/login', authMiddlewares.isNotAuthenticated, authController.login);
 router.post('/login', authMiddlewares.isNotAuthenticated, authController.doLogin);
 router.get('/login/google', authMiddlewares.isNotAuthenticated, passport.authenticate('google-auth', { scope: SCOPES  }))

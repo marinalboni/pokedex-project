@@ -3,7 +3,7 @@
     <div class="intro-register-img mb-4">
       <img src="/images/pikachu.png" width="100" class="mx-auto d-block" alt="intro" >
     </div>
-    <form action="/register" method="post">
+    <form action="/register" method="post" enctype='multipart/form-data'>
       <div class="input-group mb-2">
         <input
           type="text"
@@ -26,6 +26,18 @@
           value="{{ user.email }}"
         >
         {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
+      </div>
+
+      <div class="input-group mb-2">
+        <input
+          type="file"
+          name="image"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.image}}is-invalid{{/if}}"
+          placeholder="Upload Image"
+          aria-label="User name"
+          value="{{ user.image }}"
+        >
+        {{#if errors.image}}<div class="invalid-feedback">{{ errors.image }}</div>{{/if}}
       </div>
 
       <div class="input-group mb-3">
