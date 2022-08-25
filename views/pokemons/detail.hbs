@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="d-flex flex-row justify-content-evenly align-items-center mt-5">
+    <div>
+      <img src="{{pokemons.sprites.other.dream_world.front_default}}" width="450" alt="pokemon img">
+    </div>
+    <div>
+      <h1 style="text-transform: capitalize" class="mb-4">{{name}}</h1>
+      <h3>Type:</h3>
+        <ul>
+          {{#each pokemons.types as |type|}}
+          <li style="text-transform: capitalize">{{type.type.name}}</li>       
+        {{/each}}
+        </ul>      
+      <h3>Abilities:</h3>
+        <ul>
+            {{#each pokemons.abilities as |ability|}}
+            <li style="text-transform: capitalize">{{ability.ability.name}}</li>        
+            {{/each}}
+        </ul>
+        <a href="/" class="btn btn-dark mt-3">Back to pokemons</a>
+    </div>
+  </div>
+</div>

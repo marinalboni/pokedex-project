@@ -1,1 +1,35 @@
-<h1>HOME</h1>
+<div class="container">    
+  {{#if error}}    
+    <div class="container d-flex align-items-center flex-column">
+        <img src="/images/ashcrying.png" width="500" alt="ash crying" class="my-4">
+        <h3 class="my-4">{{error}}</h1>
+        <a class="my-4 btn btn-dark" href="/0">Click here to see pokemons</a>
+    </div>
+  {{else}}
+    <h1 class="text-center my-5">P O K E M O N S</h1>  
+    <div class="row">
+        {{#each pokemons as |pokemon|}}
+            <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="card shadow bg-body rounded" style="width: 18rem;">
+                <div class="card-body d-flex align-items-center flex-column">
+                    <img src="/images/pokebola.png" width="50" alt="pokebola img">
+                    <h5 class="card-title" style="text-transform: capitalize">{{pokemon.name}}</h5>            
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="/pokemon/{{pokemon.name}}" class="btn btn-dark" target="_blank">View detail</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {{/each}}    
+        <nav aria-label="Page navigation example" style="position: sticky">
+            <ul class="pagination d-flex justify-content-center">
+                {{#if previousPage}}
+                    <li class="page-item"><a class="page-link" href="/pokemon/page/{{previousBtn}}">Previous</a></li>
+                {{/if}}
+                {{#if nextPage}}
+                    <li class="page-item"><a class="page-link" href="/pokemon/page/{{nextBtn}}">Next</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    {{/if}} 
+</div>

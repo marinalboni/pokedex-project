@@ -3,14 +3,17 @@ const passport = require('passport');
 const authController = require('../controllers/auth.controllers')
 const authMiddlewares = require('../middlewares/authMiddlewares')
 const fileUploader = require('./cloudinary.config')
+const pokeController = require('../controllers/poke.controllers')
 
 const SCOPES = [
     "profile",
     "email"
 ]
 
-//HOME
-router.get('/',(req, res, next) => {res.render('home')});
+//POKEMONS
+router.get('/', (req, res, next) => { res.redirect('/pokemon/page/0')})
+router.get('/pokemon/page/:page', pokeController.home); 
+router.get('/pokemon/:name', pokeController.detail);
 
 //AUTH
 router.get('/register', authMiddlewares.isNotAuthenticated, authController.register);
