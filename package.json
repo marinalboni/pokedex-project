@@ -29,13 +29,5 @@
         "passport-google-oauth20": "^2.0.0",
         "passport-local": "^1.0.0",
         "pokedex-promise-v2": "^4.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mblason/lab-nodemailer.git"
-    },
-    "bugs": {
-        "url": "https://github.com/mblason/lab-nodemailer/issues"
-    },
-    "homepage": "https://github.com/mblason/lab-nodemailer#readme"
+    }
 }
